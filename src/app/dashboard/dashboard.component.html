@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<div class="mainContent-search " >
+    <h2 style="display: inline-block;">Models</h2>
+      
+</div>
+<div *ngIf="models" class="container board-menu">
+    <!--<div *ngFor="let model of models, let i = index"
+         style="background-size: 100% 100%;
+         background-repeat: no-repeat;
+         background-image: url({{'http://pondacams.com/documents/' + model.selfie}} );">
+        <p>{{model.l_name}}</p>
+        <p>{{model.d_name}}</p>
+    </div>
+
+<video  id ="modelVid<?php echo  $model['id']?>" style="display:none;" onmouseover="play()" onmouseout="pause()" id="myVideo" src="/model_video/<?php echo $model['model_video'] ?>" width="320" height="150"  muted loop></video>
+-->
+    
+    <mat-card class="example-card" *ngFor="let model of models, let i = index" 
+        (mouseover)="playVideo('myVideo'+ model.id)" 
+        (mouseout)="pauseVideo('myVideo'+ model.id)" 
+        routerLink="/videochat/{{model.model_id}}"
+      style="height: 200px ;
+             width: 250px ;
+             color: white;
+             border-radius: 0px;
+             opacity: 3.9;
+             background-size: 100% 100%;
+             background-repeat: no-repeat;"
+             
+             
+             [style.background-image]="'url(http://pondacams.com/documents/' + model.cover_photo + ')'"
+             >
+		  
+            <video  class="modelVideo" 
+                    style="display:none;object-fit: fill;border-radius: 0px;" 
+                    
+                    id="myVideo{{model.id}}" 
+                    src="{{'http://pondacams.com/model_video/'+ model.model_video}}" 
+                    width="320" 
+                    height="150"  
+                    muted
+                    
+                    loop>
+
+            </video>
+            
+            <div class="story-thumb">
+                    <img src="{{'http://pondacams.com/documents/' + model.selfie}}" alt="thumb">
+                    
+                    <span *ngIf="model.is_online == 1" class="status-online "></span>
+                    
+                    <span *ngIf="model.is_online == 0" class="status "></span>
+            </div>
+
+            <mat-card-title style="width: 10%;
+                                   position: absolute;
+                                   bottom: 6px;
+                                   left: 6px;
+                                   z-index: 9;">
+                {{model.d_name}}
+                <mat-card-subtitle style="color: aliceblue;display: inline;">
+                    {{model.age + ' Years'}}
+                </mat-card-subtitle>
+            </mat-card-title>
+		  
+		  <!--mat-card-subtitle *ngIf="board.closed" class="red-text">Closed</mat-card-subtitle>
+		  <mat-card-subtitle *ngIf="board.closed === false" class="green-text">Active</mat-card-subtitle>
+		  
+          <mat-card-content>
+		    <p>{{board.desc | slice:0: 150}}</p>
+		    <p></p>
+		  </mat-card-content>
+		  <mat-card-actions>
+		    <button mat-button mat-raised-button color="primary" routerLink="/detail/{{board.id}}">Open</button>
+		    <button mat-button mat-raised-button color="warn" (click)="deleteBoard(board.id,i)">Delete</button>
+
+		    <button mat-button mat-raised-button color="accent" routerLink="/updateBoard/{{board.id}}">Update</button>
+		  </mat-card-actions>
+          -->
+    </mat-card>
+    
+</div>
+
+
+<!-- <input matInput 
+           placeholder="Placeholder" 
+           style="display: inline-block; 
+                  margin-left: 10px;">-->

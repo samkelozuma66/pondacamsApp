@@ -1,0 +1,217 @@
+
+<div *ngIf="model" class="board-menu">
+    <mat-card class="example-card"
+        style="width: 90%;
+               margin: auto;
+               height: 200px;
+               margin-bottom: 1%;
+               border-radius: 3px;
+               background-color: #500011;
+               opacity: .7;
+               color: white;
+               margin-top: 3%;
+               "
+                
+    >
+    CHAT
+    {{innerWidth}}
+    </mat-card>
+
+    <mat-card class="example-card"
+        style="width: 90%;
+               margin: auto;
+               min-height: 200px;
+               border-radius: 3px;
+               background-color: #960808 !important;
+               color: white;
+               display: inline;
+               "
+                
+    >
+        
+        <div class="modelDetails">
+
+            <img    class="userprofile-pic" 
+                    src="{{'http://pondacams.com/documents/' +model.selfie  }}"
+                    
+                    alt="" />
+            <div class="media-body"
+                    >
+                   <h3 style="font-size: 1.5rem;margin: 0;" >{{model.d_name}}</h3>
+                   <p  style="margin-top: 0;padding: 0;font-size: 1rem;font-weight:500;">ONLY AVAILABLE ON PONDACAMS</p>
+                   <p class="mb-0 whitecolor">54 
+                       <fa-icon [icon]="faStar" style="color: yellow;"></fa-icon>
+                       <fa-icon [icon]="faStar" style="color: yellow;"></fa-icon>
+                       <fa-icon [icon]="faStar" style="color: yellow;"></fa-icon>
+                       <fa-icon [icon]="faStar" style="color: yellow;"></fa-icon>
+                       <fa-icon [icon]="farStar"></fa-icon>
+                   </p>
+                   <p class="redcolor">{{model.bio}}</p>
+                    <div *ngIf="innerWidth < 950"
+                         class="">
+
+                        <div class="card-rofile">
+                            <h3>{{model.age}}</h3>
+                            <p>AGE</p>
+                        </div>
+                        <div class="card-rofile">
+                            <h3>{{model.bSize}}</h3>
+                            <p>Breast Size</p>
+                        </div>
+                        <div class="card-rofile">
+                            <h3>{{model.gender}}</h3>
+                            <p>Gender</p>
+                        </div>
+                        <div class="card-rofile">
+                            <img *ngIf="country" 
+                                    src  ="{{country.flag}}" 
+                                    width="100%" 
+                                    alt  ="">
+                            <h3 *ngIf="!country">{{model.country}}</h3>
+                        </div>
+                    </div>
+            </div>
+            <div *ngIf="innerWidth > 950"
+                 class="cardsModel">
+                <div class="card-rofile">
+                    <h3>{{model.age}}</h3>
+                    <p>AGE</p>
+                </div>
+                <div class="card-rofile">
+                    <h3>{{model.bSize}}</h3>
+                    <p>Breast Size</p>
+                </div>
+                <div class="card-rofile">
+                    <h3>{{model.gender}}</h3>
+                    <p>Gender</p>
+                </div>
+                <div class="card-rofile">
+                    <img *ngIf="country" 
+                         src  ="{{country.flag}}" 
+                         width="100%" 
+                         alt  ="">
+                    <h3 *ngIf="!country">{{model.country}}</h3>
+                </div>
+            </div>
+           
+        </div>
+    </mat-card>
+
+    <div style="width: 90%;
+                margin: auto;
+                border-radius: 3px;
+                color: white;
+                margin-top: 3%;
+                "
+    >
+        <div *ngIf="innerWidth > 700"
+             class="card-columns"
+            >
+            <div *ngFor="let picture of mmodelpictures, let i = index"
+            class="card"
+            style="display: block;margin: 10px;">
+                <img   
+                src  ="{{'http://pondacams.com/model-images/'+ picture.image_name}}" 
+                
+                style="width: 100%;"
+                alt  ="{{picture}}">
+
+                <div *ngIf="picture.is_locked == 'lock'" 
+                    (mouseover)="displayBuy('lockdiv'+picture.id )"
+                    (mouseout)="hideBuy('lockdiv'+ picture.id)" 
+                    class="locked">
+                    <i  class="fa fa-lock" 
+                        style="font-size: 30px;
+                        color: #fff; 
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        margin-left: -25px;
+                        width: 50px;
+                        height: 50px; 
+                        margin-top: -25px;">
+                    </i>
+                    <div class="overlay" id="{{'lockdiv'+picture.id}}">
+                        <div class="more">
+                            <h3 class="card-title title"
+                                style="font-size: 12px;">
+                                50 picture_price Tokens for 90 days
+                            </h3>
+                            <button mat-raised-button 
+                                    color="accent"  
+                                    style="margin: auto;
+                                           background: linear-gradient(180deg,#fc0,#f98706);"
+                                           >
+                                           Unlock my picture 
+                            </button>
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--<div class="locked">
+                <i  class="fa fa-lock" 
+                    style="font-size: 30px;
+                    color: #fff; 
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-left: -25px;
+                    width: 50px;
+                    height: 50px; 
+                    margin-top: -25px;">
+                </i>
+            </div>-->
+        </div>
+        <div *ngIf="innerWidth < 700"
+        class="card-columnsin">
+            <div *ngFor="let picture of mmodelpictures, let i = index" 
+                class="card"
+                style="display: block;">
+
+                <img   src  ="{{'http://pondacams.com/model-images/'+ picture.image_name}}" 
+                style="margin: 10px;"
+                width="90%" 
+                alt  ="{{picture}}">
+
+                <div *ngIf="picture.is_locked == 'lock'" 
+                (mouseover)="displayBuy('lockdiv'+picture.id )"
+                (mouseout)="hideBuy('lockdiv'+ picture.id)" 
+                    class="lockedin">
+                    <i  class="fa fa-lock" 
+                        style="font-size: 30px;
+                        color: #fff; 
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        margin-left: -25px;
+                        width: 50px;
+                        height: 50px; 
+                        margin-top: -25px;">
+                    </i>
+                    <div class="overlay" id="{{'lockdiv'+picture.id}}">
+                        <div class="more">
+                            <h3 class="card-title title"
+                                style="font-size: 12px;">
+                                50 picture_price Tokens for 90 days
+                            </h3>
+                            <button mat-raised-button 
+                                    color="accent"  
+                                    style="margin: auto;
+                                           background: linear-gradient(180deg,#fc0,#f98706);"
+                                           >
+                                           Unlock my picture 
+                            </button>
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,182 @@
+.mainContent-search {
+    background-color: #500011;
+    height: 50px;
+    color: #ff5e5e;
+    opacity: .7;
+    padding-left: 10px;
+  }
+  .header {
+    text-align: center;
+  }
+  /* DashboardComponent's private CSS styles */
+  
+  h2 {
+    text-align: center;
+  }
+  .containert {
+    background-image: url("https://trello-backgrounds.s3.amazonaws.com/SharedBackground/540x960/fae07dbaf2f89797b7d996b02639facb/photo-1637788644930-042f84cf00fa.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .board-menu {
+    padding: 0;
+    margin: auto;
+    max-width: 1000px;
+  
+    /* flexbox */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start    ;
+    align-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 3%;
+    padding-left: 0;
+    
+  }
+  .modelVideo{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    border: 0; 
+  }
+  .story-thumb {
+    z-index: 9;
+    left: 6px;
+    position: absolute;
+    top: 6px;
+    z-index: 1;
+  }
+  .story-thumb img {
+    z-index: 9;
+    border: 2px solid #fff;
+    border-radius: 100%;
+    transition: all 0.25s linear 0s;
+    max-width: 100%;
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: red; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+  }
+
+  span.status {
+          background: #bebebe none repeat scroll 0 0;
+      border-radius: 50%;
+      bottom: 4px;
+      display: inline-block;
+      height: 15px;
+      padding: 2px;
+      position: absolute;
+      right: 0;
+      width: 15px;
+  }
+  span.status-online {
+    background: #7FBA00 none repeat scroll 0 0;
+    border-radius: 50%;
+    bottom: 4px;
+    display: inline-block;
+    height: 15px;
+    padding: 2px;
+    position: absolute;
+    right: 0;
+    width: 15px;
+  }
+  .status .f-online {
+      background: #7FBA00;
+  }
+  span.status::after {
+          background: white none repeat scroll 0 0;
+      border-radius: 100%;
+      content: "";
+      height: 6px;
+      left: 50%;
+      position: absolute;
+      top: 53%;
+      transform: translate(-50%, -50%);
+      width: 6px;
+  }
+  .blare{
+    background-color: #3f525c;
+    width: 100%;
+  }
+  span.status-online::after {
+    background: white none repeat scroll 0 0;
+    border-radius: 100%;
+    content: "";
+    height: 6px;
+    left: 50%;
+    position: absolute;
+    top: 53%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+  }
+  span.status.f-away {
+      background: #ffd300;
+  }
+
+  .board-menu mat-card {
+    margin-right: 10px;
+  }
+  .red-text {
+    color: red !important;
+  }
+  .green-text {
+    color: green !important;
+  }
+  mat-card {
+    margin-top: 2%;
+  }
+  a {
+    background-color: #3f525c;
+    border-radius: 2px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    min-width: 70px;
+    margin: .5rem auto;
+    box-sizing: border-box;
+  
+    /* flexbox */
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+  }
+  
+  @media (min-width: 600px) {
+    a {
+      width: 18%;
+      box-sizing: content-box;
+    }
+  }
+  
+  a:hover {
+    background-color: #000;
+  }
